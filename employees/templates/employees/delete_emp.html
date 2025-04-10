@@ -1,0 +1,46 @@
+<style>
+    body {
+        background-color: #181818;
+        color: #e0e0e0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #242424;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+    button {
+        margin: 10px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        background-color: #4caf50;
+        color: #ffffff;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    a {
+        color: #4caf50;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+<div class="container">
+    <h1>Delete Employee</h1>
+    <p>Are you sure you want to delete {{ employee.full_name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'employees:emp_list' %}">Cancel</a>
+    </form>
+</div>
